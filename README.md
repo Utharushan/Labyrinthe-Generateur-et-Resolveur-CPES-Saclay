@@ -74,7 +74,7 @@ python main.py
 - **`class_graphe.py`** : Classes et méthodes pour représenter les graphes.
 - **`labyrinthe.py`** : Génération du labyrinthe et algorithmes associés.
 - **`algorithmes.py`** : Implémentations des algorithmes Dijkstra et A*.
-- **`class_graphe.py`** : Classes et méthodes pour représenter les piles.
+- **`pile.py`** : Classes et méthodes pour représenter les piles.
 
 ---
 
