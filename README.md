@@ -93,7 +93,7 @@ python main.py
 
 ---
 
-## **Exemple de capture d'écran**
+## **Exemples de capture d'écran**
 
 1. **Génération et visualisation du labyrinthe :**
    ![image](https://github.com/user-attachments/assets/8416eee0-1e75-49f9-80f4-56c5f0fa0831)
