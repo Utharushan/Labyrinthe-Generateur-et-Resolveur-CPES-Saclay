@@ -5,7 +5,18 @@ from pile import *
 
 def liste_voisins(case, vus, g):
     """
-    Renvoie la liste des cases voisines de `case` non visitées dans une matrice de taille n x n.
+    Renvoie la liste des cases voisines non visitées pour une case donnée dans une matrice.
+    ------------------------------------------------------------------------------------------------
+    Prend en entrée :
+    - case : Tuple représentant la position actuelle sous la forme (i, j).
+    - vus : Ensemble des cases déjà visitées.
+    - g : Objet du type GrapheM représentant le labyrinthe.
+    ------------------------------------------------------------------------------------------------
+    Détermine les voisins potentiels de la case en tenant compte des limites du labyrinthe
+    et retourne uniquement les voisins qui n'ont pas encore été visités.
+    ------------------------------------------------------------------------------------------------
+    Renvoie :
+    - Une liste des coordonnées des cases voisines non visitées.
     """
     l = g.l
     h = g.h
@@ -24,8 +35,17 @@ def liste_voisins(case, vus, g):
 
 def ajoute(g, pos, direction):
     """
-    Ajoute un sommet au graphe g en fonction du sommet désigné par la position actuelle pos
-    et du sommet suivant désigné par la direction 
+    Ajoute un arc dans le graphe pour relier deux sommets adjacents.
+    ------------------------------------------------------------------------------------------------
+    Prend en entrée :
+    - g : Objet du type GrapheM représentant le labyrinthe.
+    - pos : Tuple représentant la position actuelle sous la forme (i, j).
+    - direction : Tuple représentant la case voisine à connecter.
+    ------------------------------------------------------------------------------------------------
+    Traduit les coordonnées matricielles (i, j) en indices de sommets pour le graphe
+    et crée un arc entre ces deux sommets dans le graphe.
+    ------------------------------------------------------------------------------------------------
+    Ne renvoie rien (modifie le graphe en place).
     """
     i1, j1 = pos
     i2, j2 = direction
@@ -36,7 +56,18 @@ def ajoute(g, pos, direction):
 
 def generer_laby(l, h):
     """
-    génère un labyrinthe de longueur l et de hauteur h
+    Génère un labyrinthe aléatoire représenté sous forme de graphe.
+    ------------------------------------------------------------------------------------------------
+    Prend en entrée :
+    - l : Entier représentant la largeur du labyrinthe (nombre de colonnes).
+    - h : Entier représentant la hauteur du labyrinthe (nombre de lignes).
+    ------------------------------------------------------------------------------------------------
+    Utilise une approche par backtracking avec une pile pour générer un labyrinthe connexe.
+    Chaque case est représentée comme un sommet dans un graphe. Les arcs du graphe
+    correspondent aux passages entre cases (destruction des murs).
+    ------------------------------------------------------------------------------------------------
+    Renvoie :
+    - Un objet GrapheM représentant le labyrinthe généré.
     """
     g = GrapheM(l, h)
     i, j = randint(0, h-1), randint(0, l-1)
